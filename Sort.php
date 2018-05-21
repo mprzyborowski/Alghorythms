@@ -3,6 +3,12 @@
 class Sort
 {
 
+    /**
+     * find highest one and move to the end
+     *
+     * @param $array
+     * @return mixed
+     */
     public function bubbleSort($array)
     {
         $n = count($array);
@@ -25,6 +31,10 @@ class Sort
         return $array;
     }
 
+    /**
+     * @param $array
+     * @return mixed
+     */
     public function selectSort($array)
     {
         $n = count($array);
@@ -48,21 +58,26 @@ class Sort
         return $array;
     }
 
-    public function testSort($array)
+    public function insertionSort($array)
     {
         $n = count($array);
 
-        for ($i = 0; $i < $n; $i++) {
+        for ($i = 1; $i < $n; $i++) {
+            $currentElement = $array[$i];
+            $j = $i;
 
-            for ($j = $i + 1; $j < $n; $j++) {
-                if ($array[$i] > $array[$j]) {
-                    $this->swap($array, $i, $j);
-                }
+            while ($j > 0 && $currentElement < $array[$j - 1]) {
+                $array[$j] = $array[$j - 1];
+                $j--;
             }
+
+            $array[$j] = $currentElement;
         }
 
         return $array;
     }
+
+
 
     private function swap(&$array, $index1, $index2)
     {
