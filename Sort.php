@@ -48,20 +48,45 @@ class Sort
         return $array;
     }
 
-    public function testSort($array)
+    /**
+     * @param $arrayToSort
+     * @return array
+     */
+    public function mergeSort(array $arrayToSort)
     {
-        $n = count($array);
+        if (count($arrayToSort) == 1) {
+            return $arrayToSort;
+        }
 
-        for ($i = 0; $i < $n; $i++) {
+        $mid = (int)count($arrayToSort) / 2;
 
-            for ($j = $i + 1; $j < $n; $j++) {
-                if ($array[$i] > $array[$j]) {
-                    $this->swap($array, $i, $j);
-                }
+        $left = $this->mergeSort(array_slice($arrayToSort, 0, $mid));
+        $right = $this->mergeSort(array_slice($arrayToSort, $mid));
+
+        return $this->merge($left, $right);
+    }
+
+    private function merge(array $left, array $right)
+    {
+        $arr = [];
+
+        while (count($left) > 0 && count($right) > 0) {
+
+            if ($left[0] > $right[0]) {
+                $arr[] = array_shift($right);
+            } else {
+                $arr[] = array_shift($left);
             }
         }
 
-        return $array;
+        while (count($right) > 0) {
+            $arr[] = array_shift($right);
+        }
+        while (count($left) > 0) {
+            $arr[] = array_shift($left);
+        }
+
+        return $arr;
     }
 
     private function swap(&$array, $index1, $index2)
@@ -70,5 +95,27 @@ class Sort
         $val2 = $array[$index2];
         $array[$index1] = $val2;
         $array[$index2] = $val1;
+    }
+
+    public function piramid($n)
+    {
+        $rows = $n * 2 - 1;
+
+        for ($i = 1; $i < $rows; $i++) {
+            if ($i > $n) {
+                $i = $i - 2;
+                $n--;
+                $rows--;
+            }
+
+            if ($i == 0) {
+                break;
+            }
+
+            $x = range(1, $i);
+            $str = implode('', $x) . PHP_EOL;
+
+            echo $str;
+        }
     }
 }
