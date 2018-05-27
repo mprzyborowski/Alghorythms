@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Sort.php';
+require_once 'Funny.php';
 
 //$array = [];
 //for ($i = 0; $i < 10000; $i++) {
@@ -21,3 +22,6 @@ require_once 'Sort.php';
 //    print_r($functionName . ' ' . $timediff . PHP_EOL);
 //}
 
+$funny = new Funny();
+$funny->drawLeftSidePyramid(13);
+$funny->drawXmasTree(13);

@@ -96,26 +96,4 @@ class Sort
         $array[$index1] = $val2;
         $array[$index2] = $val1;
     }
-
-    public function piramid($n)
-    {
-        $rows = $n * 2 - 1;
-
-        for ($i = 1; $i < $rows; $i++) {
-            if ($i > $n) {
-                $i = $i - 2;
-                $n--;
-                $rows--;
-            }
-
-            if ($i == 0) {
-                break;
-            }
-
-            $x = range(1, $i);
-            $str = implode('', $x) . PHP_EOL;
-
-            echo $str;
-        }
-    }
 }
