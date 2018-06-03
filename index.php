@@ -2,6 +2,7 @@
 
 require_once 'Sort.php';
 require_once 'Funny.php';
+require_once 'Math.php';
 
 //$array = [];
 //for ($i = 0; $i < 10000; $i++) {
@@ -22,6 +23,12 @@ require_once 'Funny.php';
 //    print_r($functionName . ' ' . $timediff . PHP_EOL);
 //}
 
-$funny = new Funny();
-$funny->drawLeftSidePyramid(13);
-$funny->drawXmasTree(13);
+//$funny = new Funny();
+//$funny->drawLeftSidePyramid(13);
+//$funny->drawXmasTree(13);
+
+$math = new Math();
+
+$c = $math->isEven(78);
+
+var_dump($c);
