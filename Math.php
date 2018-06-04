@@ -11,7 +11,7 @@ class Math
 
     public function isPrime(int $int)
     {
-        if (0 === $int) {
+        if (0 === $int || 1 === $int) {
             return false;
         }
 
