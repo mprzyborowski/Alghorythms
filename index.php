@@ -29,6 +29,10 @@ require_once 'Math.php';
 
 $math = new Math();
 
-$c = $math->isEven(78);
+//$c = $math->isEven(78);
+
+$arr1 = [1,2,3,4,1,2,3,1,2,3,4,5,1,2,3,4,5,6,7,8,1,2,3,1,2,3,4,5,1,2,3,4];
+
+$c = $math->findBiggestSequence($arr1);
 
 var_dump($c);

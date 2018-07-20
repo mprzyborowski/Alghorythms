@@ -37,4 +37,47 @@ class Math
     {
         return pow(2, $prime) - 1;
     }
+
+    public function arrayDiff(array $arr1, array $arr2)
+    {
+        $temp = [];
+
+        foreach ($arr1 as $key1 => $val1) {
+            $tempVar = null;
+
+            foreach ($arr2 as $key2 => $val2) {
+                if ($val1 === $val2) {
+                    $tempVar = null;
+                    break;
+                }
+            }
+        }
+
+        return $temp;
+    }
+
+    public function findBiggestSequence(array $array)
+    {
+        $sequences = [];
+        $sequence = 0;
+        foreach ($array as $key => $value) {
+            if (isset($array[$key+1]) && $value + 1 == $array[$key+1]) {
+                $sequences[$sequence][] = $value;
+            } else {
+                $sequence++;
+            }
+        }
+
+        $count = 0;
+        $biggest = [];
+
+        foreach ($sequences as $item) {
+            if (count($item) > $count) {
+                $count = count($item);
+                $biggest = $item;
+            }
+        }
+
+        return $biggest;
+    }
 }
